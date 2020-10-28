@@ -9,14 +9,14 @@ const ProductTable = (props) => {
         <Col xs={12} md={12} lg={6} xl={4}>
             <Card>
                 <CardHeader>
-                    <h2>La tabla del {props.operator} :)</h2>
+                    <h2>La tabla del {props.number}</h2>
                 </CardHeader>
                 <CardBody>
                     {
                         myArray.map((item, i) => {
                             return (
-                                <p>{props.operator + ' * ' + item + ' = '}
-                                    <span><b>{props.operator * item}</b></span>
+                                <p>{props.number + ' * ' + item + ' = '}
+                                    <span><b>{props.number * item}</b></span>
                                 </p>
                             );
                         })
