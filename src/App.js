@@ -1,11 +1,12 @@
 import React from 'react';
+import { Row } from 'reactstrap';
 
 // Components:
 import ProductTable from './components/ProductTable';
 
 const App = (props) => {
   return (
-    <div>
+    <Row>
       <ProductTable operator={1} />
       <ProductTable operator={2} />
       <ProductTable operator={3} />
@@ -15,8 +16,7 @@ const App = (props) => {
       <ProductTable operator={7} />
       <ProductTable operator={8} />
       <ProductTable operator={9} />
-      <ProductTable operator={10} />
-    </div>
+    </Row>
   );
 }
 
