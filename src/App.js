@@ -25,7 +25,7 @@ class App extends React.Component {
         }}>{'<'}</Button>
 
         <ProductTable number={this.state.currentOperator} />
-        
+
         <Button onClick={() => {
           this.setState({ currentOperator: this.state.currentOperator + 1 })
         }}>{'>'}</Button>

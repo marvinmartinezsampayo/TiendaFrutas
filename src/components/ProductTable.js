@@ -3,7 +3,7 @@ import { Card, CardBody, CardHeader, Col } from 'reactstrap';
 
 const ProductTable = (props) => {
 
-    let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let myArray = [1, 2, 3, 4, 5];
 
     return (
         <Col xs={12} md={12} lg={6} xl={4}>
