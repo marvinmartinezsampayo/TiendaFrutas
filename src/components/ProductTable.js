@@ -1,30 +1,52 @@
 import React from 'react';
-import { Card, CardBody, CardHeader, Col } from 'reactstrap';
+import { Button, Card, CardBody, CardHeader, Col } from 'reactstrap';
 
-const ProductTable = (props) => {
+class ProductTable extends React.Component {
 
-    let myArray = [1, 2, 3, 4, 5];
+    constructor() {
+        super();
 
-    return (
-        <Col xs={12} md={12} lg={6} xl={4}>
-            <Card>
-                <CardHeader>
-                    <h2>La tabla del {props.number}</h2>
-                </CardHeader>
-                <CardBody>
-                    {
-                        myArray.map((item, i) => {
-                            return (
-                                <p>{props.number + ' * ' + item + ' = '}
-                                    <span><b>{props.number * item}</b></span>
-                                </p>
-                            );
-                        })
-                    }
-                </CardBody>
-            </Card>
-        </Col>
-    );
+        this.state = {
+            myNumbersArray: [1, 2, 3, 4, 5]
+        }
+    }
+
+    render() {
+
+        return (
+            <Col xs={12} md={12} lg={6} xl={4}>
+                <Card>
+                    <CardHeader>
+                        <h2>La tabla del {this.props.number}</h2>
+                        <Button color="info" onClick={() => {
+
+                            let myNewArray = this.state.myNumbersArray;
+                            let lastElement = myNewArray[myNewArray.length - 1];
+
+                            for (let i = 1; i <= 5; i++) {
+                                myNewArray.push(lastElement + i);
+                            }
+
+                            this.setState({ myNumbersArray: myNewArray });
+
+                        }}>Ver más</Button>
+                    </CardHeader>
+                    <CardBody>
+                        {
+                            this.state.myNumbersArray.map((item, i) => {
+                                return (
+                                    <p>{this.props.number + ' * ' + item + ' = '}
+                                        <span><b>{this.props.number * item}</b></span>
+                                    </p>
+                                );
+                            })
+                        }
+                    </CardBody>
+                </Card>
+            </Col>
+        );
+    }
+
 }
 
 export default ProductTable;
