@@ -34,9 +34,10 @@ class ProductTable extends React.Component {
                     <CardBody>
                         {
                             this.state.myNumbersArray.map((item, i) => {
+                                const result = this.props.number * item;
                                 return (
                                     <p>{this.props.number + ' * ' + item + ' = '}
-                                        <span><b>{this.props.number * item}</b></span>
+                                        {this.getResultColored(result)}
                                     </p>
                                 );
                             })
@@ -45,6 +46,21 @@ class ProductTable extends React.Component {
                 </Card>
             </Col>
         );
+    }
+
+    getResultColored = (result) => {
+        if(this.state.showResults){
+            return (
+                <span
+                src={}
+                    style={{ color: (result > 20) ? 'red' : 'blue' }}
+                >
+                    <b>
+                        {result}
+                    </b>
+                </span>
+            );
+        }
     }
 
 }

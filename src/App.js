@@ -4,6 +4,8 @@ import { Button, Row } from 'reactstrap';
 // Components:
 import ProductTable from './components/ProductTable';
 
+const myStoresData = require('./mockData/fruitStores.json');
+
 class App extends React.Component {
 
   constructor() {
