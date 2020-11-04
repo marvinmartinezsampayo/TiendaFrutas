@@ -49,10 +49,9 @@ class ProductTable extends React.Component {
     }
 
     getResultColored = (result) => {
-        if(this.state.showResults){
+        if (this.state.showResults) {
             return (
                 <span
-                src={}
                     style={{ color: (result > 20) ? 'red' : 'blue' }}
                 >
                     <b>
