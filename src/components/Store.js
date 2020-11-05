@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, CardBody, CardHeader, Col } from 'reactstrap';
+import { Card, CardBody, CardHeader, Col, Row} from 'reactstrap';
 
 // Icons:
 import { FaAppleAlt } from 'react-icons/fa';
+import { BsFillHouseFill } from 'react-icons/bs';
 import { GiGrapes, GiWatermelon } from 'react-icons/gi';
 
 const Store = (props) => {
@@ -40,9 +41,25 @@ const Store = (props) => {
                         </div>
                     </div>
                 </CardHeader>
-                <CardBody style={{backgroundColor: myBackgroundColor}}>
-                    <h4>{props.data.location_1_address}</h4>
-                    <h6>{props.data.location_1_city + ', ' + props.data.location_1_state}</h6>
+                <CardBody style={{backgroundColor: myBackgroundColor}}>                   
+                    <Row className="d-flex justify-content-center">
+                        <h4>{props.data.location_1_address}</h4>                    
+                    </Row>
+                    <Row>
+                        <h6>{props.data.location_1_city + ', ' + props.data.location_1_state}</h6>
+                    </Row>
+                    <Row style={{ display: 'flex', paddingRight:'2%' }}>
+                    
+                        <div style={{ flex: 8 }}>
+                            {props.data.farm_name}
+                        </div>
+
+                        <div style={{ flex: 2, display: 'flex', justifyContent: 'flex-end' }}>
+                            {getNameStore(props)}
+                        </div>
+                                        
+                    </Row>
+                   
                 </CardBody>
             </Card></Col>
     );
@@ -64,6 +81,29 @@ const getStoreIcon = (props) => {
     if (props.data.item === 'Peaches') {
         return (
             <GiWatermelon color='orange' />
+        );
+    }
+}
+
+const getNameStore = (props) => {    
+     
+
+
+    if (props.data.farm_name && props.data.item === 'apples') {
+        return (            
+            <BsFillHouseFill color='red' />
+        );
+    }
+
+    if (props.data.farm_name && props.data.item === 'Grapes') {
+        return (           
+            <BsFillHouseFill color='purple' />
+        );
+    }
+
+    if ( props.data.farm_name && props.data.item === 'Peaches') {
+        return (            
+            <BsFillHouseFill color='orange' />
         );
     }
 }
